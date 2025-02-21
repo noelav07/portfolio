@@ -86,3 +86,23 @@ function myMenuFunction() {
     });
   }
   window.addEventListener('scroll', scrollActive);
+
+
+  
+
+
+  // stack
+
+  function toggleContactForm() {
+    var form = document.getElementById("contactForm");
+    form.style.display = (form.style.display === "block") ? "none" : "block";
+  }
+
+  // Close form when clicking outside
+  document.addEventListener("click", function(event) {
+    var form = document.getElementById("contactForm");
+    var button = document.querySelector(".contact-btn");
+    if (!form.contains(event.target) && !button.contains(event.target)) {
+      form.style.display = "none";
+    }
+  });

@@ -627,3 +627,81 @@
         width: 100%;
       }
     }
+
+    
+
+
+    .floating-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: 0.3s ease-in-out;
+      z-index: 1000;
+    }
+
+    /* Admin Button */
+    .admin-btn {
+      background: rgb(40, 91, 212);
+      color: white;
+      bottom: 20px;
+    }
+    .admin-btn:hover {
+      background: rgba(0, 0, 0, 0.9);
+    }
+
+    /* Contact Button */
+    .contact-btn {
+      background: #007bff;
+      color: white;
+      bottom: 80px; /* Positioned above admin button */
+    }
+    .contact-btn:hover {
+      background: #0056b3;
+    }
+
+    /* Contact Form */
+    .contact-form-container {
+      position: fixed;
+      bottom: 140px; /* Above the contact button */
+      right: 20px;
+      width: 320px;
+      background: #fff;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      padding: 15px;
+      border-radius: 10px;
+      display: none;
+      z-index: 1000;
+    }
+
+    .contact-form-container input,
+    .contact-form-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .contact-form-container button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .contact-form-container button:hover {
+      background: #0056b3;
+    }
