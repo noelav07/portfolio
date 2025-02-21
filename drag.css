@@ -1,0 +1,88 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #0e0d50, #A6CDC6);
+}
+
+/* Upload Container */
+.upload-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Drag & Drop Area */
+.drop-area {
+    border: 2px dashed rgba(207, 207, 207, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    width: 350px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+.drop-area:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.drop-area p {
+    margin: 10px 0;
+    color: #fff;
+    font-weight: 500;
+}
+
+#browse {
+    color: #FFD700;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#browse:hover {
+    color: #FFA500;
+}
+
+/* File Info */
+#file-info {
+    margin-top: 15px;
+    color: #fff;
+    font-size: 16px;
+}
+
+/* Error Message */
+.error {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* File Icon */
+.file-icon {
+    font-size: 50px;
+    color: #FFD700;
+    transition: 0.3s;
+}
+
+.drop-area:hover .file-icon {
+    color: #FFA500;
+}
+
+/* Hidden File Input */
+#fileInput {
+    display: none;
+}
