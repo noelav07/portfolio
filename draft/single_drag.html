@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>component</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #0abae6, #2d0b41);
+        }
+
+        /* Upload Container */
+        .upload-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Drag & Drop Area */
+        .drop-area {
+            border: 2px dashed rgba(207, 207, 207, 0.5);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            width: 350px;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 10px;
+        }
+
+        .drop-area:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .drop-area p {
+            margin: 10px 0;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        #browse {
+            color: #FFD700;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #browse:hover {
+            color: #FFA500;
+        }
+
+        /* File Info */
+        #file-info {
+            margin-top: 15px;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        /* Error Message */
+        .error {
+            color: #ff4d4d;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* File Icon */
+        .file-icon {
+            font-size: 50px;
+            color: #FFD700;
+            transition: 0.3s;
+        }
+
+        .drop-area:hover .file-icon {
+            color: #FFA500;
+        }
+
+        /* Hidden File Input */
+        #fileInput {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <div id="drop-area" class="drop-area">
+            <i class="file-icon">📄</i>
+            <p>Drag & Drop PDF here or <span id="browse">Browse</span></p>
+            <input type="file" id="fileInput" accept="application/pdf" hidden>
+        </div>
+        <p id="file-info"></p>
+        <p id="error-msg" class="error"></p>
+    </div>
+
+    <script>
+        const dropArea = document.getElementById("drop-area");
+        const fileInput = document.getElementById("fileInput");
+        const fileInfo = document.getElementById("file-info");
+        const errorMsg = document.getElementById("error-msg");
+        const browse = document.getElementById("browse");
+
+        // Handle browse click
+        browse.addEventListener("click", () => fileInput.click());
+
+        // Handle file input change
+        fileInput.addEventListener("change", handleFiles);
+
+        // Handle drag-over effect
+        dropArea.addEventListener("dragover", (event) => {
+            event.preventDefault();
+            dropArea.style.background = "rgba(255, 255, 255, 0.3)";
+        });
+
+        dropArea.addEventListener("dragleave", () => {
+            dropArea.style.background = "rgba(255, 255, 255, 0.1)";
+        });
+
+        // Handle file drop
+        dropArea.addEventListener("drop", (event) => {
+            event.preventDefault();
+            dropArea.style.background = "rgba(255, 255, 255, 0.1)";
+
+            let files = event.dataTransfer.files;
+            handleFiles({ target: { files } });
+        });
+
+        // Handle file selection
+        function handleFiles(event) {
+            const file = event.target.files[0];
+
+            if (file && file.type === "application/pdf") {
+                fileInfo.textContent = `✅ ${file.name}`;
+                errorMsg.textContent = "";
+            } else {
+                fileInfo.textContent = "";
+                errorMsg.textContent = "❌ Only PDF files are allowed!";
+            }
+        }
+    </script>
+</body>
+</html>
+
