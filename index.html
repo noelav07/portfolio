@@ -3,10 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- --------- UNICONS ---------- -->
+  <meta name="description" content="Noel Abraham V - IT Infrastructure Engineer Portfolio">
+  <meta name="keywords" content="IT Infrastructure, Linux, AWS, Cloud, DevOps">
+  <meta name="author" content="Noel Abraham V">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <!-- UNICONS -->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-  <!-- --------- CSS ---------- -->
+  
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
+  
   <title>Portfolio - Noel Abraham V</title>
 </head>
 <body>
@@ -18,29 +34,14 @@
       </div>
       <div class="nav-menu" id="myNavMenu">
         <ul class="nav_menu_list">
-          <li class="nav_list">
-            <a href="#home" class="nav-link active-link">Home</a>
-            <div class="circle"></div>
-          </li>
-          <li class="nav_list">
-            <a href="#about" class="nav-link">About</a>
-            <div class="circle"></div>
-          </li>
-          <li class="nav_list">
-            <a href="#projects" class="nav-link">Projects</a>
-            <div class="circle"></div>
-          </li>
-          <!-- <li class="nav_list">
-            <a href="#contact" class="nav-link">Contact</a>
-            <div class="circle"></div>
-          </li> -->
+          <li class="nav_list"><a href="#home" class="nav-link active-link">Home</a></li>
+          <li class="nav_list"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav_list"><a href="#projects" class="nav-link">Projects</a></li>
         </ul>
       </div>
-      <!-- <div class="nav-button">
-        <a href="13_noel-abraham-oryon.pdf" download="13_noel-abraham-oryon.pdf" class="btn">
-          Download Resume <i class="uil uil-file-alt"></i>
-        </a>
-      </div> -->
+      <div class="nav-button">
+        <button class="btn blue-btn" onclick="toggleContactForm()">Let's Talk</button>
+      </div>
       <div class="nav-menu-btn">
         <i class="uil uil-bars" onclick="myMenuFunction()"></i>
       </div>
@@ -60,6 +61,10 @@
           <div class="featured-text-info">
             <p>
                 I help organizations set up, maintain, and monitor their IT infrastructure, ensuring smooth, secure, and reliable operations. </p>
+            <div class="certification-badge" style="margin-top: 10px; display: flex; justify-content: flex-start; gap: 15px;">
+              <img src="https://images.credly.com/images/572de0ba-2c59-4816-a59d-b0e1687e45ee/linkedin_thumb_image.png" alt="RHCSA Logo" style="height: 80px; width: auto;">
+              <!-- <img src="https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png" alt="RHCSA EX294 Logo" style="height: 80px; width: auto;"> -->
+            </div>
           </div>
           <div class="featured-text-btn">
             <a href="mailto:contact.noelav07@gmail.com" target="_blank" class="btn blue-btn">
@@ -105,27 +110,48 @@
           </div>
         </div>
         <div class="featured-image">
-          <div class="image">
+          <!-- Removing the empty blue circular image container -->
+          <!-- <div class="image">
             <!-- Add your profile image here -->
             <!-- <img src="assets/images/your-image.jpg" alt="Noel Abraham V"> -->
-          </div>
+          <!-- </div> -->
         </div>
       </section>
       <!-- -------------- ABOUT BOX ---------------- -->
       <section class="section" id="about">
         <div class="top-header">
           <h1>About Me</h1>
+          <!-- <span>My introduction</span> -->
         </div>
         <div class="row">
           <div class="col">
             <div class="about-info">
               <h3>About Me</h3>
-              <p>
-                I am an IT Infrastructure Engineer with expertise in Linux system installation, configuration, Cisco networking, AWS cloud services, and virtualization. I have successfully delivered projects ranging from centralized monitoring systems to serverless web apps.
-              </p>
-              <div class="about-btn">
-                <!-- <a href="13_noel-abraham-oryon.pdf"><button class="btn">Resume <i class="uil uil-import"></i></button></a> -->
-              </div>
+              <p>I'm a passionate IT Infrastructure Engineer, constantly exploring technologies like Linux, AWS, networking, and virtualization to build reliable, secure systems. I enjoy solving problems and automating infrastructure to make operations smooth and scalable.</p> 
+              <p>My learning journey includes hands-on projects in cloud and system administration, where I focus on practical, efficient solutions that align with real-world business needs.</p>
+              <!-- <div class="skills-box">
+                <div class="skills-header">
+                  <h3>Areas of Expertise</h3>
+                </div>
+                <div class="skills-list">
+                  <span>Cloud Architecture</span>
+                  <span>AWS</span>
+                  <span>Azure</span>
+                  <span>GCP</span>
+                  <span>Kubernetes</span>
+                  <span>Docker</span>
+                  <span>CI/CD</span>
+                  <span>Infrastructure as Code</span>
+                  <span>Network Security</span>
+                  <span>Linux</span>
+                  <span>Windows Server</span>
+                  <span>Terraform</span>
+                </div>
+              </div> -->
+              
+              <!-- <div class="about-btn">
+                <button>Download CV <i class="uil uil-import"></i></button>
+              </div> -->
             </div>
           </div>
           <div class="col">
@@ -375,14 +401,29 @@
 
 <div class="floating-btn contact-btn" onclick="toggleContactForm()">📧</div>
 
-<!-- Contact Form -->
-<div class="contact-form-container" id="contactForm">
-  <h3>Contact Me</h3>
-  <input type="text" placeholder="Your Name" required>
-  <input type="email" placeholder="Your Email" required>
-  <input type="tel" placeholder="Your Phone" required>
-  <textarea placeholder="Your Message" rows="4" required></textarea>
-  <button type="submit">Send Message</button>
+<!-- Contact Form Popup -->
+<div id="contactForm" class="contact-form-container">
+  <button type="button" class="close-btn" onclick="closeContactForm()">×</button>
+  <h3>Get In Touch</h3>
+  <form onsubmit="handleFormSubmit(event)">
+    <div class="input-group">
+      <i class="uil uil-user"></i>
+      <input type="text" id="name" placeholder="Your Name" required>
+    </div>
+    <div class="input-group">
+      <i class="uil uil-envelope"></i>
+      <input type="email" id="email" placeholder="Your Email" required>
+    </div>
+    <div class="input-group">
+      <i class="uil uil-message"></i>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+    </div>
+    <button type="submit">Send Message <i class="uil uil-message"></i></button>
+    <div class="form-footer">
+      <span>Your message will be encrypted</span>
+      <span>Response within 24 hours</span>
+    </div>
+  </form>
 </div>
 
 
